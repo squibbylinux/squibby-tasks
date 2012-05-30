@@ -1,0 +1,14 @@
+Source: squibby-tasks
+Section: admin
+Priority: important
+Maintainer: Squibby Linux Team <public@chania-lug.gr>
+Uploaders: Pantelis Koukousoulas <pktoss@gmail.com>
+Build-Depends: debhelper (>= 7), dpkg-dev (>= 1.9.0)
+Standards-Version: 3.9.2
+Vcs-Git: git://github.com/squibbylinux/squibby-tasks
+
+Package: squibby-tasks
+Architecture: all
+Depends: ${misc:Depends}, tasksel
+Description: Squibby Linux Tasks
+ This package provides Squibby Linux tasks in tasksel.
