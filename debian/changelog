@@ -1,3 +1,9 @@
+squibby-tasks (1.0dummy1) precise; urgency=low
+
+  * No changes, just a dummy version bump to get lp to build the package
+
+ -- Pantelis Koukousoulas <pktoss@gmail.com>  Wed, 26 Sep 2012 20:48:28 +0300
+
 squibby-tasks (1.0) precise; urgency=low
 
   * Initial release 
