@@ -1,8 +1,0 @@
-Task: squibby-desktop
-Section: user
-Description: Squibby Linux Desktop
- This task provides the Squibby Linux Desktop, based on KDE.
-Key:
- squibby-desktop
-Packages: list
- squibby-desktop

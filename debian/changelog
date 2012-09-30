@@ -1,3 +1,11 @@
+squibby-tasks (1.1) precise; urgency=low
+
+  * Make the squibby-tasks package "real", i.e., it autogenerates the tasks
+    from the seeds now and also generates package lists for the tasks! 
+    (see squibby-seeds.pl, makedesc.pl, update-lists and the Makefile)
+
+ -- Pantelis Koukousoulas <pktoss@gmail.com>  Sun, 30 Sep 2012 21:39:23 +0300
+
 squibby-tasks (1.0dummy1) precise; urgency=low
 
   * No changes, just a dummy version bump to get lp to build the package

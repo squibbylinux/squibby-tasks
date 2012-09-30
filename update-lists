@@ -1,0 +1,47 @@
+#!/bin/bash
+set -e
+
+ARCH=$(dpkg --print-architecture)
+
+for i in seeds germinate-out packagelists packages; do
+	if [[ -d "$i" ]]; then
+		rm -rf "$i"
+	fi
+	mkdir $i
+done
+
+SEEDS=`pwd`/seeds
+cd seeds
+bzr branch http://bazaar.launchpad.net/~squibbylinux/squibbylinux/squibby-desktop.precise
+bzr branch http://bazaar.launchpad.net/~ubuntu-core-dev/ubuntu-seeds/platform.precise
+
+cd ../germinate-out
+germinate -S file://$SEEDS \
+          -s squibby-desktop.precise \
+          -m http://localhost:3142/ubuntu/ \
+          -m http://ppa.lauchpad.net/squibbylinux/stable/ubuntu \
+          -d precise,precise-updates,precise-security \
+          -a ${ARCH} \
+          -c main,restricted,universe
+
+cd ../packagelists
+for i in live desktop desktop-common; do
+    < ../germinate-out/$i \
+    tail -n +3 | head -n -2 | cut -d' ' -f1 > $i.packages
+done
+
+cd ../packages
+for i in squibby-desktop squibby-live; do
+echo '#!/bin/sh' > $i
+echo 'cat << EOF' >> $i
+done
+
+cat ../packagelists/live.packages >> squibby-live
+cat ../packagelists/{desktop-common,desktop}.packages | sort -u >> squibby-desktop
+
+for i in squibby-desktop squibby-live; do
+echo 'EOF' >> $i
+done
+
+cd ..
+rm -rf seeds germinate-out packagelists
