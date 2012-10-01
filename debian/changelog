@@ -1,3 +1,9 @@
+squibby-tasks (1.1dummy1) precise; urgency=low
+
+  * Bump up version to get the package to build again
+
+ -- Pantelis Koukousoulas <pktoss@gmail.com>  Mon, 01 Oct 2012 06:35:27 +0300
+
 squibby-tasks (1.1) precise; urgency=low
 
   * Make the squibby-tasks package "real", i.e., it autogenerates the tasks
