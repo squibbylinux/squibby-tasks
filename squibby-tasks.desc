@@ -1,0 +1,18 @@
+Task: squibby-desktop
+Section: user
+Description: Squibby desktop
+ The Squibby Linux environment using KDE Plasma Desktop
+Key: 
+ squibby-desktop
+Packages: squibby-desktop
+
+Task: squibby-live
+Section: user
+Relevance: 2
+Description: Squibby live CD
+ This task provides the extra packages installed on the Squibby live CD. It is neither useful nor recommended to install this task in other environments.
+Key: 
+ ubiquity-frontend-kde
+Packages: squibby-live
+Test-new-install: skip show
+

@@ -1,0 +1,8 @@
+Task: squibby-desktop
+Section: user
+Description: Squibby desktop
+ The Squibby Linux environment using KDE Plasma Desktop
+Key:
+ squibby-desktop
+Seeds: desktop-common
+Packages: squibby-desktop

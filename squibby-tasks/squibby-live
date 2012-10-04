@@ -1,0 +1,10 @@
+Task: squibby-live
+Section: user
+Description: Squibby live CD
+ This task provides the extra packages installed on the Squibby live CD. It is neither useful nor recommended to install this task in other environments.
+Relevance: 2
+Key:
+ ubiquity-frontend-kde
+Test-new-install: skip show
+Seeds: live-common
+Packages: squibby-live
