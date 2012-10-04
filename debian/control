@@ -8,7 +8,7 @@ Standards-Version: 3.9.2
 Vcs-Git: git://github.com/squibbylinux/squibby-tasks
 
 Package: squibby-tasks
-Architecture: all
+Architecture: i386 amd64
 Depends: ${misc:Depends}, tasksel
 Description: Squibby Linux Tasks
  This package provides Squibby Linux tasks in tasksel.

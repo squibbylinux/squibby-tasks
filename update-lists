@@ -3,7 +3,11 @@ set -e
 
 ARCH=$(dpkg --print-architecture)
 
-for i in seeds germinate-out packagelists packages; do
+if [[ "$1" == "i386" ]] || [[ "$1" == "amd64" ]]; then
+	ARCH="$1"
+fi
+
+for i in seeds germinate-out packagelists-${ARCH} packages-${ARCH}; do
 	if [[ -d "$i" ]]; then
 		rm -rf "$i"
 	fi
@@ -24,24 +28,24 @@ germinate -S file://$SEEDS \
           -a ${ARCH} \
           -c main,restricted,universe
 
-cd ../packagelists
+cd ../packagelists-${ARCH}
 for i in live desktop desktop-common; do
     < ../germinate-out/$i \
     tail -n +3 | head -n -2 | cut -d' ' -f1 > $i.packages
 done
 
-cd ../packages
+cd ../packages-${ARCH}
 for i in squibby-desktop squibby-live; do
 echo '#!/bin/sh' > $i
 echo 'cat << EOF' >> $i
 done
 
-cat ../packagelists/live.packages >> squibby-live
-cat ../packagelists/{desktop-common,desktop}.packages | sort -u >> squibby-desktop
+cat ../packagelists-${ARCH}/live.packages >> squibby-live
+cat ../packagelists-${ARCH}/{desktop-common,desktop}.packages | sort -u >> squibby-desktop
 
 for i in squibby-desktop squibby-live; do
 echo 'EOF' >> $i
 done
 
 cd ..
-rm -rf seeds germinate-out packagelists
+rm -rf seeds germinate-out packagelists*
